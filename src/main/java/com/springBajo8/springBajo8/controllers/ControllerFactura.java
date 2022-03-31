@@ -25,18 +25,14 @@ public class ControllerFactura {
     }
 
     @DeleteMapping("/{id}")
-    private Mono<ResponseEntity<Factura>> delete(@PathVariable("id") String id) {
-        return this.service.delete(id)
-                .flatMap(citasDTOReactiva -> Mono.just(ResponseEntity.ok(citasDTOReactiva)))
-                .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
+    private Mono<Factura> delete(@PathVariable("id") String id) {
+        return this.service.delete(id);
 
     }
 
     @PutMapping("/{id}")
-    private Mono<ResponseEntity<Factura>> update(@PathVariable("id") String id, @RequestBody Factura citasDTOReactiva) {
-        return this.service.update(id, citasDTOReactiva)
-                .flatMap(citasDTOReactiva1 -> Mono.just(ResponseEntity.ok(citasDTOReactiva1)))
-                .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
+    private Mono<Factura> update(@PathVariable("id") String id, @RequestBody Factura citasDTOReactiva) {
+        return this.service.update(id, citasDTOReactiva);
     }
 
     @GetMapping

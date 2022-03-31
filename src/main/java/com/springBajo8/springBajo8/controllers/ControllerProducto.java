@@ -1,7 +1,9 @@
 package com.springBajo8.springBajo8.controllers;
 
 import com.springBajo8.springBajo8.domain.Factura;
+import com.springBajo8.springBajo8.domain.Producto;
 import com.springBajo8.springBajo8.service.IFacturaService;
+import com.springBajo8.springBajo8.service.IProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,31 +17,27 @@ import reactor.core.publisher.Mono;
 public class ControllerProducto {
 
     @Autowired
-    private IFacturaService service;
+    private IProductoService service;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    private Mono<Factura> save(@RequestBody Factura factura) {
-        return this.service.save(factura);
+    private Mono<Producto> save(@RequestBody Producto producto) {
+        return this.service.save(producto);
     }
 
     @DeleteMapping("/{id}")
-    private Mono<ResponseEntity<Factura>> delete(@PathVariable("id") String id) {
-        return this.service.delete(id)
-                .flatMap(citasDTOReactiva -> Mono.just(ResponseEntity.ok(citasDTOReactiva)))
-                .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
+    private Mono<Producto> delete(@PathVariable("id") String id) {
+        return this.service.delete(id);
 
     }
 
     @PutMapping("/{id}")
-    private Mono<ResponseEntity<Factura>> update(@PathVariable("id") String id, @RequestBody Factura citasDTOReactiva) {
-        return this.service.update(id, citasDTOReactiva)
-                .flatMap(citasDTOReactiva1 -> Mono.just(ResponseEntity.ok(citasDTOReactiva1)))
-                .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
+    private Mono<Producto> update(@PathVariable("id") String id, @RequestBody Producto producto) {
+        return this.service.update(id, producto);
     }
 
     @GetMapping
-    private Flux<Factura> findAll() {
+    private Flux<Producto> findAll() {
         return this.service.findAll();
     }
 }
