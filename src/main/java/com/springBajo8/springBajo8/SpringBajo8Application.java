@@ -23,6 +23,7 @@ public class SpringBajo8Application {
 				.paths(PathSelectors.any())
 				.build();
 	}
+
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBajo8Application.class, args);
 	}
