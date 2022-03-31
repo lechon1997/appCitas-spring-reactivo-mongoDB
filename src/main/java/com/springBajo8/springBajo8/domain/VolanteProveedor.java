@@ -10,31 +10,32 @@ import java.util.List;
 @Document(collection = "volantes")
 public class VolanteProveedor {
     @Id
-    private String Id;
-    private List<InfoProductoProveedor> productos;
+    private String identificacionProveedor;
+    private String nombreProveedor;
     private LocalDate fecha;
-    private String documentoProveedor;
+    private List<Producto> productos;
 
-    public VolanteProveedor(List<InfoProductoProveedor> productos, LocalDate fecha, String documentoProveedor) {
-        this.productos = productos;
+    public VolanteProveedor(String identificacionProveedor, String nombreProveedor, LocalDate fecha, List<Producto> productos) {
+        this.identificacionProveedor = identificacionProveedor;
+        this.nombreProveedor = nombreProveedor;
         this.fecha = fecha;
-        this.documentoProveedor = documentoProveedor;
-    }
-
-    public String getId() {
-        return Id;
-    }
-
-    public void setId(String id) {
-        Id = id;
-    }
-
-    public List<InfoProductoProveedor> getProductos() {
-        return productos;
-    }
-
-    public void setProductos(List<InfoProductoProveedor> productos) {
         this.productos = productos;
+    }
+
+    public String getIdentificacionProveedor() {
+        return identificacionProveedor;
+    }
+
+    public void setIdentificacionProveedor(String identificacionProveedor) {
+        this.identificacionProveedor = identificacionProveedor;
+    }
+
+    public String getNombreProveedor() {
+        return nombreProveedor;
+    }
+
+    public void setNombreProveedor(String nombreProveedor) {
+        this.nombreProveedor = nombreProveedor;
     }
 
     public LocalDate getFecha() {
@@ -45,11 +46,11 @@ public class VolanteProveedor {
         this.fecha = fecha;
     }
 
-    public String getDocumentoProveedor() {
-        return documentoProveedor;
+    public List<Producto> getProductos() {
+        return productos;
     }
 
-    public void setDocumentoProveedor(String documentoProveedor) {
-        this.documentoProveedor = documentoProveedor;
+    public void setProductos(List<Producto> productos) {
+        this.productos = productos;
     }
 }
