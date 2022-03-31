@@ -1,4 +1,4 @@
-package com.springBajo8.springBajo8.controller;
+package com.springBajo8.springBajo8.controllers;
 
 
 import com.springBajo8.springBajo8.domain.Factura;
@@ -13,20 +13,20 @@ import reactor.core.publisher.Mono;
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api/factura")
-public class citasReactivaResource {
+public class ControllerFactura {
 
     @Autowired
-    private IFacturaService IFacturaService;
+    private IFacturaService service;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     private Mono<Factura> save(@RequestBody Factura factura) {
-        return this.IFacturaService.save(factura);
+        return this.service.save(factura);
     }
 
     @DeleteMapping("/{id}")
     private Mono<ResponseEntity<Factura>> delete(@PathVariable("id") String id) {
-        return this.IFacturaService.delete(id)
+        return this.service.delete(id)
                 .flatMap(citasDTOReactiva -> Mono.just(ResponseEntity.ok(citasDTOReactiva)))
                 .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
 
@@ -34,14 +34,14 @@ public class citasReactivaResource {
 
     @PutMapping("/{id}")
     private Mono<ResponseEntity<Factura>> update(@PathVariable("id") String id, @RequestBody Factura citasDTOReactiva) {
-        return this.IFacturaService.update(id, citasDTOReactiva)
+        return this.service.update(id, citasDTOReactiva)
                 .flatMap(citasDTOReactiva1 -> Mono.just(ResponseEntity.ok(citasDTOReactiva1)))
                 .switchIfEmpty(Mono.just(ResponseEntity.notFound().build()));
     }
 
     @GetMapping
     private Flux<Factura> findAll() {
-        return this.IFacturaService.findAll();
+        return this.service.findAll();
     }
 
 }
