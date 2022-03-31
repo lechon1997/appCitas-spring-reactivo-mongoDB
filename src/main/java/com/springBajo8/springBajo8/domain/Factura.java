@@ -26,6 +26,7 @@ public class Factura {
     }
 
     private Double calcularPrecioFinal(List<ProductoComprado> productoComprados){
+        int x = 3;
         return productoComprados.stream().map(p -> p.getPrecio()).reduce(Double.valueOf(0), Double::sum);
     }
 
