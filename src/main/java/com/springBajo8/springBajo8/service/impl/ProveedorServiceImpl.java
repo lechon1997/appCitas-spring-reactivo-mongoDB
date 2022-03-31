@@ -4,9 +4,11 @@ import com.springBajo8.springBajo8.domain.Proveedor;
 import com.springBajo8.springBajo8.repository.IProveedorRepository;
 import com.springBajo8.springBajo8.service.IProveedorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+@Service
 public class ProveedorServiceImpl implements IProveedorService {
 
     @Autowired

@@ -4,9 +4,11 @@ import com.springBajo8.springBajo8.domain.Producto;
 import com.springBajo8.springBajo8.repository.IProductoRepository;
 import com.springBajo8.springBajo8.service.IProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+@Service
 public class ProductoServiceImpl implements IProductoService {
 
     @Autowired
