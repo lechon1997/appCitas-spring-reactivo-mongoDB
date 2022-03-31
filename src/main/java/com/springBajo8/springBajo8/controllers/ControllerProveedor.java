@@ -26,7 +26,6 @@ public class ControllerProveedor {
     @DeleteMapping("/{id}")
     private Mono<Void> delete(@PathVariable("id") String id) {
         return this.service.delete(id);
-
     }
 
     @PutMapping("/{id}")
