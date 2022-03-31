@@ -1,12 +1,9 @@
 package com.springBajo8.springBajo8.controllers;
 
-import com.springBajo8.springBajo8.domain.Factura;
 import com.springBajo8.springBajo8.domain.Producto;
-import com.springBajo8.springBajo8.service.IFacturaService;
 import com.springBajo8.springBajo8.service.IProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

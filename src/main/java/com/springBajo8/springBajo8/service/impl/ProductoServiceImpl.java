@@ -27,11 +27,8 @@ public class ProductoServiceImpl implements IProductoService {
     @Override
     public Mono<Producto> update(String id, Producto producto) {
         return this.repository.findById(id)
-                .flatMap(citasDTOReactiva1 -> {
-                    producto.setId(id);
-                    return save(producto);
-                })
-                .switchIfEmpty(Mono.empty());
+                .doOnNext(p -> p.setId(id))
+                .flatMap(repository::save);
     }
 
     @Override
