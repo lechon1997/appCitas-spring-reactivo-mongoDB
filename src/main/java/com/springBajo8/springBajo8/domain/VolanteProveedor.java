@@ -1,6 +1,7 @@
 package com.springBajo8.springBajo8.domain;
 
 import com.springBajo8.springBajo8.values.InfoProductoProveedor;
+import com.springBajo8.springBajo8.values.VOProducto;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,9 +14,9 @@ public class VolanteProveedor {
     private String identificacionProveedor;
     private String nombreProveedor;
     private LocalDate fecha;
-    private List<Producto> productos;
+    private List<VOProducto> productos;
 
-    public VolanteProveedor(String identificacionProveedor, String nombreProveedor, LocalDate fecha, List<Producto> productos) {
+    public VolanteProveedor(String identificacionProveedor, String nombreProveedor, LocalDate fecha, List<VOProducto> productos) {
         this.identificacionProveedor = identificacionProveedor;
         this.nombreProveedor = nombreProveedor;
         this.fecha = fecha;
@@ -46,11 +47,11 @@ public class VolanteProveedor {
         this.fecha = fecha;
     }
 
-    public List<Producto> getProductos() {
+    public List<VOProducto> getProductos() {
         return productos;
     }
 
-    public void setProductos(List<Producto> productos) {
+    public void setProductos(List<VOProducto> productos) {
         this.productos = productos;
     }
 }

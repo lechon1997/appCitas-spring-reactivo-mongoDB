@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-@CrossOrigin("*")
+@CrossOrigin("http://localhost:3000/")
 @RestController
 @RequestMapping("/api/cliente")
 public class ControllerCliente {
